@@ -1,18 +1,1 @@
-const menuButton = document.querySelector('.menu-toggle');
-const nav = document.querySelector('nav');
-
-menuButton?.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  menuButton.setAttribute('aria-expanded', String(open));
-  menuButton.textContent = open ? 'Close' : 'Menu';
-});
-
-nav?.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    menuButton?.setAttribute('aria-expanded', 'false');
-    if (menuButton) menuButton.textContent = 'Menu';
-  });
-});
-
-document.querySelector('#year').textContent = new Date().getFullYear();
+const r=['Programmer','Computer Science Student','Technology Enthusiast','Problem Solver'];let i=0;setInterval(()=>{i=(i+1)%r.length;document.querySelector('#role').textContent=r[i]},2200);document.querySelectorAll('.certs img,.timeline img').forEach(img=>{const a=document.createElement('a');a.href=img.src;a.target='_blank';a.className='certificate-image';img.parentNode.insertBefore(a,img);a.append(img)});document.querySelector('.contact').insertAdjacentHTML('beforeend','<div class="contact-buttons"><a class="email-button" href="mailto:singhadarshpawar00@gmail.com?subject=Hello%20Adarsh">Send an email ↗</a><a class="call-button" href="tel:+919301751765">Call +91 93017 51765 ↗</a></div>');const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});document.querySelectorAll('.certs article,.timeline article,.cards article').forEach(e=>{e.classList.add('reveal');observer.observe(e)});
